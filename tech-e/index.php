@@ -1,3 +1,5 @@
+<?php session_start(); ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,8 +16,11 @@
             <ul id="navbar">
                 <li><a class="active" href="../tech-e/index.php">Home</a></li>
                 <li><a href="../tech-e/store.php">Store</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="cart.html"><i class="fa-solid fa-cart-shopping"></i></a></li>
+                <li><a href="../tech-e/about.php">About</a></li>
+                <li><a href="../tech-e/cart.php"><i class="fa-solid fa-cart-shopping"></i></a></li>
+                <?php if (isset($_SESSION['user_id'])): ?>
+                    <li><a href="../tech-e/logout.php"><i class="fa-solid fa-right-from-bracket"></i></a></li>
+                <?php endif; ?>
             </ul>
         </div>
     </section>
@@ -24,7 +29,7 @@
         <h1 style="font-size: 40pt; padding-left: 20px; margin-bottom: 5px;">Your one-stop shop for all things electronic</h1>
         <h2 style="font-size: 30pt; padding-left: 20px; color: rgba(0, 255, 255, 0.789); margin-bottom: 5px;">Shop till you drop</h2>
         <h3 style="font-size: 20pt; padding-left: 20px; color: gold; margin-bottom: 50px;">The best deals</h3>
-        <a href="store.html"><button>Shop Now</button></a>
+        <a href="../tech-e/store.php"><button>Shop Now</button></a>
     </section>
 
     <section id="product1" class="section-p1">
@@ -44,7 +49,6 @@
                     </div>
                     <h4 style="margin-top: 5px; margin-bottom: 5px; font-size: 16pt; font-weight: 700; color: #007BFF;">$50</h4>
                 </div>
-                <a style="color: #007BFF;" href="#"><i style="background-color: #e8f6ea; color: #088178; border-radius: 50px; width: 40px; height: 40px; line-height: 40px; border: 1px solid #cce7d0;" class="fa-solid fa-cart-shopping"></i></a>
             </div>
             
             <div class="pro">
@@ -60,7 +64,6 @@
                     </div>
                     <h4 style="margin-top: 5px; margin-bottom: 5px; font-size: 16pt; font-weight: 700; color: #007BFF;">$30</h4>
                 </div>
-                <a style="color: #007BFF;" href="#"><i style="background-color: #e8f6ea; color: #088178; border-radius: 50px; width: 40px; height: 40px; line-height: 40px; border: 1px solid #cce7d0;" class="fa-solid fa-cart-shopping"></i></a>
             </div>
 
             <div class="pro">
@@ -76,7 +79,6 @@
                     </div>
                     <h4 style="margin-top: 5px; margin-bottom: 5px; font-size: 16pt; font-weight: 700; color: #007BFF;">$45</h4>
                 </div>
-                <a style="color: #007BFF;" href="#"><i style="background-color: #e8f6ea; color: #088178; border-radius: 50px; width: 40px; height: 40px; line-height: 40px; border: 1px solid #cce7d0;" class="fa-solid fa-cart-shopping"></i></a>
             </div>
 
             <div class="pro">
@@ -92,7 +94,6 @@
                     </div>
                     <h4 style="margin-top: 5px; margin-bottom: 5px; font-size: 16pt; font-weight: 700; color: #007BFF;">$96</h4>
                 </div>
-                <a style="color: #007BFF;" href="#"><i style="background-color: #e8f6ea; color: #088178; border-radius: 50px; width: 40px; height: 40px; line-height: 40px; border: 1px solid #cce7d0;" class="fa-solid fa-cart-shopping"></i></a>
             </div>
 
             <div class="pro">
@@ -108,7 +109,6 @@
                     </div>
                     <h4 style="margin-top: 5px; margin-bottom: 5px; font-size: 16pt; font-weight: 700; color: #007BFF;">$107</h4>
                 </div>
-                <a style="color: #007BFF;" href="#"><i style="background-color: #e8f6ea; color: #088178; border-radius: 50px; width: 40px; height: 40px; line-height: 40px; border: 1px solid #cce7d0;" class="fa-solid fa-cart-shopping"></i></a>
             </div>
 
             <div class="pro">
@@ -124,7 +124,6 @@
                     </div>
                     <h4 style="margin-top: 5px; margin-bottom: 5px; font-size: 16pt; font-weight: 700; color: #007BFF;">$100</h4>
                 </div>
-                <a style="color: #007BFF;" href="#"><i style="background-color: #e8f6ea; color: #088178; border-radius: 50px; width: 40px; height: 40px; line-height: 40px; border: 1px solid #cce7d0;" class="fa-solid fa-cart-shopping"></i></a>
             </div>
 
             <div class="pro">
@@ -140,7 +139,6 @@
                     </div>
                     <h4 style="margin-top: 5px; margin-bottom: 5px; font-size: 16pt; font-weight: 700; color: #007BFF;">$37</h4>
                 </div>
-                <a style="color: #007BFF;" href="#"><i style="background-color: #e8f6ea; color: #088178; border-radius: 50px; width: 40px; height: 40px; line-height: 40px; border: 1px solid #cce7d0;" class="fa-solid fa-cart-shopping"></i></a>
             </div>
 
             <div class="pro">
@@ -156,7 +154,6 @@
                     </div>
                     <h4 style="margin-top: 5px; margin-bottom: 5px; font-size: 16pt; font-weight: 700; color: #007BFF;">$40</h4>
                 </div>
-                <a style="color: #007BFF;" href="#"><i style="background-color: #e8f6ea; color: #088178; border-radius: 50px; width: 40px; height: 40px; line-height: 40px; border: 1px solid #cce7d0;" class="fa-solid fa-cart-shopping"></i></a>
             </div>
         </div>
     </section>
@@ -165,7 +162,7 @@
         <div style="background-image: url(../tech-e/images/login_bg2.jpg);" class="banner-box">
             <h4 style="color: white; margin-bottom: 5px;">crazy deals</h4>
             <h2 style="color: white; margin-bottom: 5px; margin-top: 5px;">buy 1 get 1 free</h2>
-            <span style="color: white; margin-bottom: 20px;">The best classic dress is on sale at cara</span>
+            <span style="color: white; margin-bottom: 20px;">The best gadgets on sale at Tech-E</span>
             <button class="white">Learn More</button>
         </div>
 
@@ -198,9 +195,9 @@
         <div class="col">
             <img class="logo" style="height: 90px; width: 350px;" src="../tech-e/images/tech-e-high-resolution-logo-transparent.png" alt="">
             <h4>Contact</h4>
-            <p><strong>Address: </strong> 562 Wellington Road, Street 32, San Francisco</p>
-            <p><strong>Phone :</strong> +01 2222 365 /(+91) 01 2345 6789</p>
-            <p><strong>Hours :</strong> 10:00 - 18:00, Mon - Sat</p>
+            <p><strong>Address: </strong>P.O.BOX 42387, Kumasi</p>
+            <p><strong>Phone: </strong>0246237238</p>
+            <p><strong>Hours: </strong> 10:00 - 18:00, Mon - Sat</p>
             <div class="follow">
                 <h4 style="margin-bottom: 0;">Follow us</h4>
                 <div class="icon">
@@ -222,16 +219,14 @@
 
         <div class="colx">
             <h4>About</h4>
-            <a href="#">About us</a>
-            <a href="#">Terms & Conditions</a>
-            <a href="#">Contact Us</a>
+            <a href="../tech-e/about.php">About Us</a>
+            <a href="../tech-e/termsandcond.php">Terms & Conditions</a>
         </div>
 
         <div class="colx">
             <h4>My Account</h4>
-            <a href="#">Sign In</a>
-            <a href="#">View Cart</a>
-            <a href="#">Wishlist</a>
+            <a href="../tech-e/login.php">Sign In</a>
+            <a href="../tech-e/cart.php">View Cart</a>
         </div>
 
         <div class="copyright">

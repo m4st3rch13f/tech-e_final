@@ -1,12 +1,11 @@
 <?php
-session_start();
-include '../tech-e/settings/connection.php';
+include '../settings/connection.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $username = $_POST['username'];
     $password = $_POST['password'];
 
-    $query = "SELECT * FROM users WHERE username = ? LIMIT 1";
+    $query = "SELECT * FROM admins WHERE username = ? LIMIT 1";
     $stmt = mysqli_prepare($conn, $query);
     mysqli_stmt_bind_param($stmt, "s", $username);
     mysqli_stmt_execute($stmt);
@@ -16,9 +15,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $user = mysqli_fetch_assoc($result);
 
         if (password_verify($password, $user['password'])) {
-            $_SESSION['user_id'] = $user['user_id'];
+            session_start();
+            $_SESSION['admin_id'] = $user['admin_id'];
             $_SESSION['username'] = $user['username'];
-            header("Location: ../tech-e/store.php");
+            header("Location: admin_dashboard.php");
             exit();
         } else {
             echo "<script>alert('Invalid password')</script>";
@@ -34,8 +34,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tech-E Login</title>
-    <link rel="stylesheet" href="login.css">
+    <title>Admin Login</title>
+    <link rel="stylesheet" href="../login.css">
 </head>
 <body>
     <div class="container">
@@ -52,7 +52,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 </div>
                 <button type="submit">Login</button>
             </form>
-            <p>Don't have an account? <a href="register.php">Register</a></p>
+            <p>Don't have an admin account? <a href="register_admin.php">Register</a></p>
         </div>
     </div>
 </body>

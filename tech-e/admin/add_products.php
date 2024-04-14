@@ -7,7 +7,6 @@ if (isset($_POST['add_prod'])) {
     $product_category = $_POST['product_category'];
     $product_price = $_POST['product_price'];
 
-    // File upload
     $file_name = $_FILES['product_image']['name'];
     $file_tmp = $_FILES['product_image']['tmp_name'];
     $file_type = $_FILES['product_image']['type'];
@@ -64,8 +63,7 @@ if (isset($_POST['add_prod'])) {
         </div>
 
         <div>
-            <label for="description" class="form-label">Product
-            description</label>
+            <label for="description" class="form-label">Product Description</label>
             <input type="text" name="description" id="description" class="form-control" placeholder="Product Description" required="required">
         </div>
 

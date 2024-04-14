@@ -1,11 +1,11 @@
 <?php
-include '../tech-e/settings/connection.php';
+include '../settings/connection.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $username = $_POST['username'];
     $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
 
-    $query = "INSERT INTO users (username, password) VALUES (?, ?)";
+    $query = "INSERT INTO admins (username, password) VALUES (?, ?)";
     $stmt = mysqli_prepare($conn, $query);
     mysqli_stmt_bind_param($stmt, "ss", $username, $password);
     
@@ -22,8 +22,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tech-E Register</title>
-    <link rel="stylesheet" href="login.css">
+    <title>Admin Register</title>
+    <link rel="stylesheet" href="../register.css">
 </head>
 <body>
     <div class="container">
@@ -40,7 +40,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 </div>
                 <button type="submit">Register</button>
             </form>
-            <p>Already have an account? <a href="login.php">Login</a></p>
+            <p>Already have an admin account? <a href="login_admin.php">Login</a></p>
         </div>
     </div>
 </body>

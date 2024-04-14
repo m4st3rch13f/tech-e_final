@@ -1,13 +1,14 @@
 <?php
 
 include '../tech-e/settings/connection.php';
+include '../tech-e/functions/getIP.php';
 
 function add_to_cart() {
     if (isset($_GET['add_to_cart'])) {
         global $conn;
 
         $get_IP = getIPAddress();
-        $get_product_id = $_GET['add_to_cart'];
+        $get_product_id = $_GET['add_to_cart']; 
 
         $select_query = "SELECT * FROM cart WHERE ip_address = ? AND product_id = ?";
         $stmt = mysqli_prepare($conn, $select_query);
